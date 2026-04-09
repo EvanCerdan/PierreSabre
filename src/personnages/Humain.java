@@ -22,7 +22,8 @@ public class Humain {
     }
     
     // Méthodes 
-    private void parler(String texte) {
+    // remplacement de private void parler 
+    protected void parler(String texte) {
         System.out.println("(" + nom + ") - " + texte);
     }
     
@@ -53,6 +54,11 @@ public class Humain {
         } else {
             parler("Je n'ai plus que " + argent + " sous en poche. Je ne peux même pas m'offrir " + bien + " à " + prix + " sous.");
         }
+    }
+    
+    // méthode pour modifier l'argent 
+    protected void modifierArgent(int variation) {
+        argent += variation;
     }
 }
     
