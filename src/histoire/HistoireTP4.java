@@ -3,11 +3,13 @@ package histoire;
 import personnages.Humain;
 import personnages.Commercant;
 import personnages.Yakuza;
+import personnages.Ronin;
 
 public class HistoireTP4 {
 	
     public static void main(String[] args) {
 
+        // Partie 1
         Humain prof = new Humain("Prof", "kombucha", 54);
 
         prof.direBonjour();
@@ -15,6 +17,7 @@ public class HistoireTP4 {
         prof.acheter("un jeu", 2);
         prof.acheter("un kimono", 50);
 
+        // Partie 2.1
         Commercant marco = new Commercant("Marco", 20);
 
         marco.direBonjour();
@@ -22,10 +25,18 @@ public class HistoireTP4 {
         marco.recevoir(15);
         marco.boire();
 
+        // Partie 2.2
         Commercant marcoYakuza = new Commercant("Marco", 15);
         Yakuza yaku = new Yakuza("Yaku Le Noir", "whisky", 30, "Warsong");
 
         yaku.direBonjour();
         yaku.extorquer(marcoYakuza);
+
+        // Partie 2.3
+        Ronin roro = new Ronin("Roro", "shochu", 60);
+        Commercant marcoRonin = new Commercant("Marco", 0);
+
+        roro.direBonjour();
+        roro.donner(marcoRonin);
     }
 }

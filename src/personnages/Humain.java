@@ -56,9 +56,13 @@ public class Humain {
         }
     }
     
-    // méthode pour modifier l'argent 
     protected void modifierArgent(int variation) {
-        argent += variation;
+        if (variation > 0) {
+            gagnerArgent(variation);
+        } else if (variation < 0) {
+            perdreArgent(-variation);
+        }
     }
+    
 }
     
