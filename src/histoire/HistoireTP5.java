@@ -6,6 +6,7 @@ public class HistoireTP5 {
 
     public static void main(String[] args) {
 
+    	// Partie 1
         Commercant marco = new Commercant("Marco", 20);
         Commercant chonin = new Commercant("Chonin", 40);
         Commercant kumi = new Commercant("Kumi", 10);
@@ -25,10 +26,11 @@ public class HistoireTP5 {
         roro.listerConnaissance();
         yaku.listerConnaissance();
         
+        // Partie 2
         yaku.direBonjour(); 
         
         
-     
+        // Partie 3
         Samourai akimoto = new Samourai("Miyamoto", "Akimoto", "saké", 80);
 
         // Le samouraï se présente
@@ -45,34 +47,47 @@ public class HistoireTP5 {
         akimoto.boire("thé");
         
 
-     Traitre masako = new Traitre("Miyamoto", "Masako", "whisky", 100);
+        // Partie 4
+        Traitre masako = new Traitre("Miyamoto", "Masako", "whisky", 100);
 
-     // 1. Personne connu
-     masako.faireLeGentil();
+        // 1. Personne connu
+        masako.faireLeGentil();
 
-     // 2. Rançonnage
-     masako.ranconner(kumi);
-     masako.ranconner(chonin);
-     masako.ranconner(marco);
+	    // 2. Rançonnage
+	    masako.ranconner(kumi);
+	    masako.ranconner(chonin);
+	    masako.ranconner(marco);
+	
+	    // 3. Dire bonjour (niveau 3)
+	    masako.direBonjour();
+	
+	    // 4. Essayer de rançonner (bloqué)
+	    masako.ranconner(marco);
+	
+	    // 5. Faire connaissance
+	    masako.faireConnaissanceAvec(akimoto);
+	    masako.faireConnaissanceAvec(yaku);
+	
+	    // 6. Faire le gentil (don aléatoire)
+	    masako.faireLeGentil();
+	
+	    // 7. Redire bonjour (niveau réduit)
+	    masako.direBonjour();
+	
+	    // 8. Roro parle
+	    roro.direBonjour();
+	    
+	    // Partie 6
+	    GrandMere grandMere = new GrandMere("Grand-Mère", 10);
 
-     // 3. Dire bonjour (niveau 3)
-     masako.direBonjour();
+	    grandMere.faireConnaissanceAvec(akimoto);
+	    grandMere.faireConnaissanceAvec(yaku);
+	    grandMere.faireConnaissanceAvec(masako);
+	    grandMere.faireConnaissanceAvec(kumi);
+	    grandMere.faireConnaissanceAvec(marco);
+	    grandMere.faireConnaissanceAvec(chonin); // dépassement
 
-     // 4. Essayer de rançonner (bloqué)
-     masako.ranconner(marco);
-
-     // 5. Faire connaissance
-     masako.faireConnaissanceAvec(akimoto);
-     masako.faireConnaissanceAvec(yaku);
-
-     // 6. Faire le gentil (don aléatoire)
-     masako.faireLeGentil();
-
-     // 7. Redire bonjour (niveau réduit)
-     masako.direBonjour();
-
-     // 8. Roro parle
-     roro.direBonjour();
+	    grandMere.ragoter();
         
     }
 }
