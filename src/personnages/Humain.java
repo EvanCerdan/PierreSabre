@@ -4,8 +4,8 @@ public class Humain {
     private String nom;
     private String boissonFavorite;
     private int argent;
-    private Humain[] memoire;
-    private int nbConnaissance;
+    protected Humain[] memoire;
+    protected int nbConnaissance;
 
     private static final int TAILLE_MEMOIRE = 30;
 
@@ -41,11 +41,11 @@ public class Humain {
         parler("Mmmm, un bon verre de " + boisson + " ! GLOUPS !");
     }
     
-    private void gagnerArgent(int gain) {
+    protected void gagnerArgent(int gain) {
         argent += gain;
     }
 
-    private void perdreArgent(int perte) {
+    protected void perdreArgent(int perte) {
         argent -= perte;
     }
     
