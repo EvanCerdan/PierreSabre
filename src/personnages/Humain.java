@@ -2,14 +2,20 @@ package personnages;
 
 public class Humain {
     private String nom;
-    private String boisson;
+    private String boissonFavorite;
     private int argent;
+    private Humain[] memoire;
+    private int nbConnaissance;
+
+    private static final int TAILLE_MEMOIRE = 30;
 
     // Constructeur
-    public Humain(String nom, String boisson, int argent) {
+    public Humain(String nom, String boissonFavorite, int argent) {
         this.nom = nom;
-        this.boisson = boisson;
+        this.boissonFavorite = boissonFavorite;
         this.argent = argent;
+        this.memoire = new Humain[TAILLE_MEMOIRE];
+        this.nbConnaissance = 0;
     }
 
     // Getters
@@ -28,7 +34,7 @@ public class Humain {
     }
     
     public void direBonjour() {
-        parler("Bonjour ! Je m'appelle " + nom + " et j'aime boire du " + boisson + ".");
+        parler("Bonjour ! Je m'appelle " + nom + " et j'aime boire du " + boissonFavorite + ".");
     }
     
     public void boire() {
@@ -63,6 +69,45 @@ public class Humain {
             perdreArgent(-variation);
         }
     }
+    
+    // TP 5 
+    protected void memoriser(Humain h) {
+        // Si mémoire pleine → on décale tout à gauche
+        if (nbConnaissance == TAILLE_MEMOIRE) {
+            for (int i = 0; i < TAILLE_MEMOIRE - 1; i++) {
+                memoire[i] = memoire[i + 1];
+            }
+            memoire[TAILLE_MEMOIRE - 1] = h;
+        } else {
+            memoire[nbConnaissance] = h;
+            nbConnaissance++;
+        }
+    }
+    
+    public void listerConnaissance() {
+        StringBuilder liste = new StringBuilder();
+
+        for (int i = 0; i < nbConnaissance; i++) {
+            liste.append(memoire[i].getNom());
+            if (i < nbConnaissance - 1) {
+                liste.append(", ");
+            }
+        }
+
+        parler("Je connais beaucoup de monde dont : " + liste.toString());
+    }
+    
+    private void repondre(Humain h) {
+        direBonjour();
+        memoriser(h);
+    }
+    
+    public void faireConnaissanceAvec(Humain autreHumain) {
+        direBonjour();
+        autreHumain.repondre(this);
+        memoriser(autreHumain);
+    }
+    
     
 }
     
